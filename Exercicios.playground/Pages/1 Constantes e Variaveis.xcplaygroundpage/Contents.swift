@@ -8,13 +8,7 @@ import UIKit
     func antecessorESucessor(...) {}
  */
 // código aqui
-//print("oi")
-//
-//var a: Int = 10
-//var sucessor = a+1
-//var antecessor = a-1
-
-//print(antecessor, sucessor)
+//em funcao
 
 func antecessorESucessor(valor: Int){
     var sucessor = valor+1
@@ -23,21 +17,30 @@ func antecessorESucessor(valor: Int){
     print (antecessor, sucessor)
 }
 antecessorESucessor(valor: 3)
+
+//em variavel
+
+let valor = 3
+let antecessor = valor - 1
+let sucessor = valor + 1
+
+print("O valor que vem antes de \(valor) é \(antecessor).")
 /*:
  ### 2. Um aplicativo mostra uma mensagem de boas vindas ao usuário, "Olá, Fulano!", na sua tela inicial. Dado o nome do usuário, escreva um algoritmo que monte a mensagem de boas vindas a ser exibida. [🐝]
     
     func printaMensagem(...) {}
  */
 // código aqui
-
-func printaMensagem(nome: String, mensagem: String) -> String {
-    let fulano = mensagem + nome
-    return fulano
-    
+func printaMensagem(nome: String){
+    let mensagem = "Olá"
+    print(mensagem, nome, "!")
 }
-var resultado = printaMensagem(nome: "julia", mensagem: "teste")
+printaMensagem(nome: "Ana")
 
-print(printaMensagem(nome: "teste2", mensagem: "teste"))
+//por var e let
+let nome = ("Ana")
+let mensagem = "Olá, \(nome)!"
+print(mensagem)
 /*:
  ### 3. Crie um programa que permita fazer a conversão cambial entre Reais e Dólares. Leia o valor em Reais e a taxa cambial. [🐝]
     func converteRealParaDolar(...) {}
@@ -50,6 +53,12 @@ func converteRealParaDolar(valorEmReais:Double) {
 }
 
 converteRealParaDolar(valorEmReais:5)
+
+//
+let valorEmReais = 5.00
+let taxaCambial = 5.63
+let valorDolar = valorEmReais * taxaCambial
+print("O valor do dolar convertido em real é", valorDolar)
 /*:
  ### 4. Faça um algoritmo que leia uma medida em metros e converta para centímetros. [🐝]
     func converteMetrosParaCentimetros(...) {}
@@ -90,9 +99,9 @@ custoAoConsumidor(custoFabrica: 10000)
     func dinheiroGasto(...) {}
  */
 // código aqui
-func dinheiroGasto( anosFumando: Int,cigarrosPorDia: Int, precoCarteira: Int){
-    var qtdCarteiras = 20/cigarrosPorDia
-    let gastoTotal = anosFumando * cigarrosPorDia * precoCarteira * qtdCarteiras
+func dinheiroGasto( anosFumando: Double ,cigarrosPorDia: Double, precoCarteira: Double){
+    var qtdCarteiras = cigarrosPorDia/20.00
+    let gastoTotal = anosFumando * 365 * precoCarteira * qtdCarteiras
     print(gastoTotal)
 
 }
@@ -143,10 +152,10 @@ salarioDoVendedor(carrosVendidos: 5, valorVendas: 1000, salarioFixo: 1800, valor
     func percentualDeVotos(...) {}
  */
 // código aqui
-func percentualDeVotos(totalEleitores:Int, votosBrancos:Int, votosNulos:Int, votosValidos:Int){
-    var percentualBrancos = totalEleitores/votosBrancos
-    var percentualNulos = totalEleitores/votosNulos
-    var percentualValidos = totalEleitores/votosValidos
+func percentualDeVotos(totalEleitores:Double, votosBrancos:Double, votosNulos:Double, votosValidos:Double){
+    var percentualBrancos = votosBrancos/totalEleitores
+    var percentualNulos = votosNulos/totalEleitores
+    var percentualValidos = votosValidos/totalEleitores
     print(percentualBrancos, percentualNulos, percentualValidos)
 }
 percentualDeVotos(totalEleitores: 100352, votosBrancos: 34, votosNulos: 89, votosValidos: 80321)
@@ -155,41 +164,83 @@ percentualDeVotos(totalEleitores: 100352, votosBrancos: 34, votosNulos: 89, voto
     func areaDoCirculo(raio:...) {}
  */
 // código aqui
-func areaDoCirculo(raio:){
-    
+func areaDoCirculo (area: Double) {
+    let raio = 5.000
+    let area = Double.pi * (raio * raio)
+    print("A área do circulo é", area)
 }
+areaDoCirculo(area: 5)
 /*:
  ### 14. Calcule quantos azulejos são necessários para cobrir uma parede. É necessário conhecer a altura e largura da parede e a altura e largura dos azulejos. [🐝🐝]
     func quantidadeDeAzulejos(_:, _:) {}
  */
 // código aqui
-
+func quantidadeDeAzulejos (alturaParede: Double, larguraParede: Double, alturaAzulejo: Double, larguraAzulejo: Double){
+    let areaParade = alturaParede * larguraParede
+    let areaAzulejos = alturaAzulejo * larguraAzulejo
+    let qtdAzulejos = areaParade / areaAzulejos
+    print(qtdAzulejos)
+}
+quantidadeDeAzulejos(alturaParede: 20, larguraParede: 15, alturaAzulejo: 1, larguraAzulejo: 1)
 /*:
  ### 15. Faça um algoritmo que leia a duração em segundos de um evento (por exemplo, um jogo de futebol) e printe o equivalente em horas, minutos e segundos. [🐝🐝]
     func converteSegundos(...) {}
  */
 // código aqui
-
+func converteSegundos(duracaoSegundos: Double){
+    var duracaoHoras = duracaoSegundos/3600
+    var duracaoMinutos = duracaoSegundos/360
+    print("A duração em horas é",duracaoHoras, "A duração em minutos é ",duracaoMinutos)
+}
+converteSegundos(duracaoSegundos: 3650)
 /*:
  ### 16. Repita o exercício "Média de notas" considerando que a média é ponderada e que os pesos das notas são 2, 3 e 5.
     func mediaFinalPonderada(...) {}
  */
 // código aqui
-
+func mediaFinalPonderada(prova1: Double, prova2: Double, prova3: Double){
+    let mediaProva1 = prova1 * 2
+    let mediaProva2 = prova2 * 3
+    let mediaProva3 = prova3 * 5
+    let mediaPonderada = (mediaProva1 + mediaProva2 + mediaProva3)/10
+    print("A média ponderada do trimestre é",mediaPonderada)
+}
+mediaFinal(prova1: 7, prova2: 6.5, prova3: 9)
 /*:
- ### 17. Dado duas variáveis A e B, troque o valor armazenado nas duas e mostre os valores finais nessas variáveis.
+17. Dado duas variáveis A e B, troque o valor armazenado nas duas e mostre os valores finais nessas variáveis.
  Dica: use uma variável auxiliar.
  
     func trocaEPrinta(a:..., b:...) {}
  */
 // código aqui
-
+//func trocaEPrinta(a:Int, b:Int){
+//    var a = 1
+//    var b = 2
+//    print(a,b)
+//}
+//var a = 4
+//var b = 2
+//trocaEPrinta(a:4, b:7)
 /*:
  ### 18. Robson quer sacar um determinado valor em um caixa eletrônico. Sabendo que o caixa dispõe de notas de 1, 2, 5, 10, 20, 50 e 100 bolsoguedes, e que ele sempre dá o menor número possível de cédulas, faça um algoritmo que retorne o número de notas de cada valor que serão fornecidas, dado o valor total a ser sacado. [🐝🐝🐝]
     func numeroDeNotas(...) {}
  */
 // código aqui
+func numeroDeNotas(valorTotal: Int){
+    let qtdNotas100: Int = valorTotal/100
+    let qtdNotas50: Int = (valorTotal - qtdNotas100)/50
+    let qtdNotas20: Int = ((valorTotal - qtdNotas100) - qtdNotas50)/20
+    let qtdNotas10: Int = (((valorTotal - qtdNotas100) - qtdNotas50) - qtdNotas20)/10
+    let qtdNotas5: Int = ((((valorTotal - qtdNotas100) - qtdNotas50) - qtdNotas20) - qtdNotas10)/5
+    let qtdNotas2: Int = (((((valorTotal - qtdNotas100) - qtdNotas50) - qtdNotas20) - qtdNotas10) - qtdNotas5)/2
+    let qtdNotas1: Int = ((((((valorTotal - qtdNotas100) - qtdNotas50) - qtdNotas20) - qtdNotas10) - qtdNotas5) - qtdNotas2)
+    print(qtdNotas1, qtdNotas2, qtdNotas5, qtdNotas10, qtdNotas10, qtdNotas20, qtdNotas50, qtdNotas100)
 
+
+    if (qtdNotas100 != 0){
+        let 
+    }
+numeroDeNotas(valorTotal: 100)
 /*:
  ### 19. Usando APENAS operadores básicos (isso é, soma, subtração, multiplicação, divisão, resto, etc) e sem laços de repetição ou funções prontas de bibliotecas, determine se um número de 5 dígitos é ou não palíndromo. [🐝🐝🐝🤯]
  P.S: um número é palíndromo se ele é igual a si mesmo, invertido (ou seja, lido de trás pra frente). Exemplos: 1221 é um palíndromo, 131 também. Mas 1552 não é palíndromo.
